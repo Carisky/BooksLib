@@ -1,19 +1,29 @@
 ﻿using BooksLib.interfaces;
+using BooksLib.utils;
 
 namespace BooksLib.models;
 
 public class Book : CRUD
 {
-    private int Id { get; set; }
-    private string Author { get; set; } = String.Empty;
-    private string Title { get; set; } = String.Empty;
-    private string Description { get; } = String.Empty;
-    private DateTime PublishedAt { get; set; } = DateTime.MinValue;
-    private string Plot { get; set; } = String.Empty;
+    public int Id { get; set; }
+    public string Author { get; set; } = String.Empty;
+    public string Title { get; set; } = String.Empty;
+    public string Description { get; } = String.Empty;
+    public DateTime PublishedAt { get; set; } = DateTime.MinValue;
+    public string Plot { get; set; } = String.Empty;
+
+    public Book(int Id, string Author, string Title, string Description, DateTime PublishedAt, string Plot){
+        this.Id = Id;
+        this.Author = Author;
+        this.Title = Title;
+        this.Description = Description;
+        this.PublishedAt = PublishedAt;
+        this.Plot = Plot;
+    }
 
     public void Save()
     {
-        
+        Writer.WriteBook(this);
     }
     public void Read()
     {
@@ -27,4 +37,5 @@ public class Book : CRUD
     {
 
     }
+
 }
