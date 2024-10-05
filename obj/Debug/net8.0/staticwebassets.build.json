@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YDeYZ8RcP52sq6J1abXtZBL/4QEI14W9dZd4rjuE9to=",
+  "Hash": "piiH0HB8N2d5NOEy6Onts83pKE5Ysezhjj6oWYd+jJ0=",
   "Source": "BooksLib",
   "BasePath": "_content/BooksLib",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\egork\\Documents\\VSCodeRepos\\BooksLib\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BooksLib.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\egork\\Documents\\VSCodeRepos\\BooksLib\\wwwroot\\css\\account_page.css",
+      "SourceId": "BooksLib",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\egork\\Documents\\VSCodeRepos\\BooksLib\\wwwroot\\",
+      "BasePath": "_content/BooksLib",
+      "RelativePath": "css/account_page.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\account_page.css"
     },
     {
       "Identity": "C:\\Users\\egork\\Documents\\VSCodeRepos\\BooksLib\\wwwroot\\css\\site.css",

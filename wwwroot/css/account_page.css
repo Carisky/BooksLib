@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+.user-card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.user-info{
+    display: flex;
+    justify-content: center;
+}
