@@ -1,0 +1,9 @@
+@model BooksLib.models.Book
+
+<div class="book-card">
+    <h3>@Model.Title</h3>
+    <p><strong>Author:</strong> @Model.Author</p>
+    <p><strong>Description:</strong> @Model.Description</p>
+    <p><strong>Published At:</strong> @Model.PublishedAt.ToString("d")</p>
+    <p><strong>Plot:</strong> @Model.Plot</p>
+</div>
