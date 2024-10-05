@@ -1,9 +1,9 @@
 ﻿using BooksLib.interfaces;
-using BooksLib.utils;
+using BooksLib.services;
 
 namespace BooksLib.models;
 
-public class Book : CRUD
+public class Book
 {
     public int Id { get; set; }
     public string Author { get; set; } = String.Empty;
@@ -12,7 +12,8 @@ public class Book : CRUD
     public DateTime PublishedAt { get; set; } = DateTime.MinValue;
     public string Plot { get; set; } = String.Empty;
 
-    public Book(int Id, string Author, string Title, string Description, DateTime PublishedAt, string Plot){
+    public Book(int Id, string Author, string Title, string Description, DateTime PublishedAt, string Plot)
+    {
         this.Id = Id;
         this.Author = Author;
         this.Title = Title;
@@ -20,22 +21,4 @@ public class Book : CRUD
         this.PublishedAt = PublishedAt;
         this.Plot = Plot;
     }
-
-    public void Save()
-    {
-        Writer.WriteBook(this);
-    }
-    public void Read()
-    {
-        
-    }
-    public void Update()
-    {
-
-    }
-    public void Delete()
-    {
-
-    }
-
 }
