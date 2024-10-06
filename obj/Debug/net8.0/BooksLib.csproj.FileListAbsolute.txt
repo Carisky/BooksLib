@@ -13,6 +13,7 @@ C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\BooksLib.csproj.C
 C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\BooksLib.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\BooksLib.RazorAssemblyInfo.cache
 C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\BooksLib.RazorAssemblyInfo.cs
+C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\BooksLib.sourcelink.json
 C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\staticwebassets\msbuild.BooksLib.Microsoft.AspNetCore.StaticWebAssets.props
@@ -28,4 +29,3 @@ C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\refint\BooksLib.d
 C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\BooksLib.pdb
 C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\BooksLib.genruntimeconfig.cache
 C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\ref\BooksLib.dll
-C:\Users\egork\Documents\VSCodeRepos\BooksLib\obj\Debug\net8.0\BooksLib.sourcelink.json
