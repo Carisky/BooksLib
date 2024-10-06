@@ -6,6 +6,6 @@ public static class ServiceLoader
 {
     public static void Register(WebApplicationBuilder builder){
         builder.Services.AddSingleton<BookService>();
+        builder.Services.AddSingleton<UserService>();
     }
-
 }
