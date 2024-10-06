@@ -24,11 +24,32 @@ namespace BooksLib.services
             {
                 Directory.CreateDirectory(directory);
             }
-            using (StreamWriter sw = new StreamWriter(filePath, append: false))
+
+            
+            using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.ReadWrite))
+            using (StreamWriter sw = new StreamWriter(fs))
             {
                 sw.WriteLine(user.Id);
                 sw.WriteLine(user.UserName);
                 sw.WriteLine(user.Password);
+            }
+        }
+
+        public void WriteNew(string UserName, string Password)
+        {
+            string sanitizedUserName = SanitizeFileName(UserName);
+            string filePath = Path.Combine(BasePath, $"{sanitizedUserName}.txt");
+            string? directory = Path.GetDirectoryName(filePath);
+            if (!Directory.Exists(directory) && directory != null)
+            {
+                Directory.CreateDirectory(directory);
+            }
+            using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.ReadWrite))
+            using (StreamWriter sw = new StreamWriter(fs))
+            {
+                sw.WriteLine(GetFreeId());
+                sw.WriteLine(UserName);
+                sw.WriteLine(Password);
             }
         }
 
@@ -38,11 +59,13 @@ namespace BooksLib.services
             string filePath = Path.Combine(BasePath, $"{sanitizedUserName}.txt");
             if (!File.Exists(filePath))
                 throw new FileNotFoundException("User file not found");
-            using (StreamReader sr = new StreamReader(filePath))
+            
+            using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (StreamReader sr = new StreamReader(fs))
             {
-
                 if (!int.TryParse(sr.ReadLine(), out int id))
                     throw new InvalidDataException("Invalid user ID");
+
                 string? username = sr.ReadLine();
                 string? password = sr.ReadLine();
                 if (string.IsNullOrEmpty(username))
@@ -56,16 +79,18 @@ namespace BooksLib.services
         public List<User> ReadAll()
         {
             List<User> users = new List<User>();
+
             if (!Directory.Exists(BasePath))
                 throw new DirectoryNotFoundException("Users directory not found");
+
             foreach (var file in Directory.GetFiles(BasePath, "*.txt"))
             {
-                using (StreamReader sr = new StreamReader(file))
+                using (FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                using (StreamReader sr = new StreamReader(fs))
                 {
                     string? id_string = sr.ReadLine();
-                    if (!string.IsNullOrEmpty(id_string))
+                    if (!string.IsNullOrEmpty(id_string) && int.TryParse(id_string, out int id))
                     {
-                        int id = int.Parse(id_string);
                         string? username = sr.ReadLine();
                         string? password = sr.ReadLine();
                         if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
@@ -88,14 +113,15 @@ namespace BooksLib.services
                 throw new DirectoryNotFoundException("Users directory not found");
             foreach (var file in Directory.GetFiles(BasePath, "*.txt"))
             {
-                using (StreamReader sr = new StreamReader(file))
+                using (FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Read))
+                using (StreamReader sr = new StreamReader(fs))
                 {
                     if (!int.TryParse(sr.ReadLine(), out int userId))
                         throw new InvalidDataException("Invalid user ID");
                     if (userId == id)
                     {
-                        string ?username = sr.ReadLine();
-                        string ?password = sr.ReadLine();
+                        string? username = sr.ReadLine();
+                        string? password = sr.ReadLine();
                         if (string.IsNullOrEmpty(username))
                             throw new InvalidDataException("Username is missing or invalid");
                         if (string.IsNullOrEmpty(password))
@@ -106,6 +132,19 @@ namespace BooksLib.services
             }
             throw new FileNotFoundException($"User with Id {id} not found");
         }
+
+        public bool IsUserAlreadyExist(string username)
+        {
+            List<User> users = ReadAll();
+            return users.Any(user => user.UserName == username);
+        }
+
+        public int GetFreeId()
+        {
+            List<User> users = ReadAll();
+            return users.Any() ? users.Max(u => u.Id) + 1 : 1;
+        }
+
         [GeneratedRegex(@"[<>:""/\\|?*]")]
         private static partial Regex MyRegex();
     }
