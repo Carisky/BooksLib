@@ -10,7 +10,7 @@ public class IndexModel : PageModel
     private readonly ILogger<IndexModel> _logger;
 
     
-    public Book CurrentBook { get; set; }
+    public Book CurrentBook { get; set; } = new Book(1,"","","",DateTime.UtcNow,"");
 
     public IndexModel(ILogger<IndexModel> logger, BookService bookService)
     {
