@@ -5,5 +5,5 @@
     <p><strong>Author:</strong> @Model.Author</p>
     <p><strong>Description:</strong> @Model.Description</p>
     <p><strong>Published At:</strong> @Model.PublishedAt.ToString("d")</p>
-    <p><strong>Plot:</strong> @Model.Plot</p>
+    <a asp-page="/BooksDetails" asp-route-id="@Model.Id" class="btn btn-primary">View Details</a>
 </div>

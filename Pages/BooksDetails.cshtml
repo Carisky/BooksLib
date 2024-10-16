@@ -1,0 +1,20 @@
+﻿@page "{id:int}"
+@model BooksLib.Pages.BooksDetailsModel
+
+<h2>Book Details</h2>
+
+@if (Model.SelectedBook != null)
+{
+    <div class="book-card">
+        <h3>@Model.SelectedBook.Title</h3>
+        <p><strong>Author:</strong> @Model.SelectedBook.Author</p>
+        <p><strong>Description:</strong> @Model.SelectedBook.Description</p>
+        <p><strong>Published At:</strong> @Model.SelectedBook.PublishedAt.ToString("d")</p>
+        <p><strong>Plot:</strong> @Model.SelectedBook.Plot</p>
+        <a asp-page="/Index" class="btn btn-primary">Go Back</a>
+    </div>
+}
+else
+{
+    <p>Book not found.</p>
+}

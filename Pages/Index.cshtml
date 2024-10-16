@@ -2,6 +2,10 @@
 @model BooksLib.Pages.IndexModel
 
 <h2>Book Details</h2>
-
-<!-- Render the BookCard partial view -->
-<partial name="_BookCard" model="Model.CurrentBook" />
+@if (Model.BooksList != null)
+{
+    @foreach (var book in Model.BooksList)
+    {
+        <partial name="_BookCard" model=book />
+    }
+}
